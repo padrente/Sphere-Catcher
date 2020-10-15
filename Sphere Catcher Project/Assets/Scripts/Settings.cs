@@ -4,9 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour
 {
+
+    public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDd;
 
     Resolution[] resolutions;
@@ -45,8 +48,12 @@ public class Settings : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-
+        
     }
 
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
+    }
 
 }
